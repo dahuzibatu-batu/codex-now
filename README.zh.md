@@ -1,11 +1,13 @@
 # Codex Now
 
-Codex Now 是一个给 macOS 新手用的小工具：不用先学一堆命令行，就可以在指定文件夹里启动 Codex。
+Codex Now 是一个给 macOS 新手用的小工具：不用先学一堆命令行，就可以在当前 Finder 文件夹里启动 Codex。
 
-你只需要双击 App，选择你的项目文件夹，然后选择启动方式：
+把它放到 Finder 工具栏后，你只需要打开任意文件夹，点击 Codex Now，然后选择启动方式：
 
 - `Codex App`：在这个文件夹里运行 `codex app`
 - `Codex CLI`：在这个文件夹里运行 `codex`
+
+如果当前没有可用的 Finder 文件夹，它会再让你手动选择一个文件夹。
 
 ## 为什么做这个
 
@@ -34,7 +36,13 @@ Codex Now 想把这一步变成一个轻量的小 App。
 ~/Applications/Codex Now.app
 ```
 
-以后你可以直接双击它。
+把它添加到 Finder 顶部工具栏：
+
+1. 打开 `~/Applications`
+2. 按住键盘上的 `Command`
+3. 把 `Codex Now.app` 拖到 Finder 顶部工具栏
+
+以后你打开任何文件夹，都可以点工具栏里的 Codex Now，在当前文件夹启动 Codex。
 
 ## 只构建，不安装
 
