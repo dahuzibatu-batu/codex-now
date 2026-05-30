@@ -9,6 +9,8 @@ Double-click the app, choose your project folder, then pick either:
 
 ## Why
 
+This project was inspired by Kazike's Claude Code Now. I made this small tool for my own Codex workflow, and for other beginners who want an easier first step into Codex CLI.
+
 Codex CLI is powerful, but the first step can feel unfriendly if you are new:
 
 ```bash

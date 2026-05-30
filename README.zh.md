@@ -9,6 +9,8 @@ Codex Now 是一个给 macOS 新手用的小工具：不用先学一堆命令行
 
 ## 为什么做这个
 
+这个项目受卡兹克大佬的 Claude Code Now 启发。我做它最开始是给自己用 Codex 准备的，也希望它能帮到同样刚开始接触 Codex CLI 的新手。
+
 Codex CLI 很强，但对新手来说，第一步可能就有点吓人：
 
 ```bash
