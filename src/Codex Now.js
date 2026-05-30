@@ -49,6 +49,10 @@ const codexCommand = choice === "Codex App" ? "codex app" : "codex";
 const escapedFolder = folderPath.replace(/'/g, "'\\''");
 const shellCommand = `cd '${escapedFolder}' && ${codexCommand}`;
 
-const terminal = Application("Terminal");
-terminal.activate();
-terminal.doScript(`/bin/zsh -lc ${JSON.stringify(shellCommand)}`);
+if (choice === "Codex App") {
+  app.doShellScript(`/bin/zsh -lc ${JSON.stringify(shellCommand)}`);
+} else {
+  const terminal = Application("Terminal");
+  terminal.activate();
+  terminal.doScript(`/bin/zsh -lc ${JSON.stringify(shellCommand)}`);
+}

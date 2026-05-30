@@ -9,6 +9,8 @@ Put the app in the Finder toolbar, open any folder, click Codex Now, then pick e
 
 If no Finder folder is available, Codex Now will ask you to choose a folder.
 
+`Codex App` opens quietly. `Codex CLI` opens Terminal because the CLI is interactive.
+
 ## Why
 
 This project was inspired by Kazike's Claude Code Now. I made this small tool for my own Codex workflow, and for other beginners who want an easier first step into Codex CLI.
