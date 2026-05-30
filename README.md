@@ -9,7 +9,7 @@ Put the app in the Finder toolbar, open any folder, click Codex Now, then pick e
 
 If no Finder folder is available, Codex Now will ask you to choose a folder.
 
-`Codex App` opens quietly. `Codex CLI` opens Terminal because the CLI is interactive.
+`Codex App` opens quietly. `Codex CLI` opens iTerm if it is installed, otherwise it falls back to Terminal.
 
 ## Why
 

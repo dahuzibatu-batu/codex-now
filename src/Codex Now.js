@@ -37,6 +37,23 @@ function chooseFolderPath() {
   return Path(folder).toString();
 }
 
+function appExists(appPath) {
+  return $.NSFileManager.defaultManager.fileExistsAtPath(appPath);
+}
+
+function openCliInTerminal(command) {
+  const terminal = Application("Terminal");
+  terminal.activate();
+  terminal.doScript(`/bin/zsh -lc ${JSON.stringify(command)}`);
+}
+
+function openCliInIterm(command) {
+  const iterm = Application("iTerm");
+  iterm.activate();
+  iterm.createWindowWithDefaultProfile();
+  iterm.currentWindow.currentSession.write({ text: `/bin/zsh -lc ${JSON.stringify(command)}` });
+}
+
 const folderPath = currentFinderFolderPath() || chooseFolderPath();
 
 const choice = app.displayDialog("How would you like to start Codex?", {
@@ -78,7 +95,9 @@ if (choice === "Codex App") {
     });
   }
 } else {
-  const terminal = Application("Terminal");
-  terminal.activate();
-  terminal.doScript(`/bin/zsh -lc ${JSON.stringify(shellCommand)}`);
+  if (appExists("/Applications/iTerm.app") || appExists("/Applications/iTerm2.app")) {
+    openCliInIterm(shellCommand);
+  } else {
+    openCliInTerminal(shellCommand);
+  }
 }

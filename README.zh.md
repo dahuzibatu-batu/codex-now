@@ -9,7 +9,7 @@ Codex Now 是一个给 macOS 新手用的小工具：不用先学一堆命令行
 
 如果当前没有可用的 Finder 文件夹，它会再让你手动选择一个文件夹。
 
-`Codex App` 会安静打开桌面版；`Codex CLI` 会打开 Terminal，因为命令行版需要在终端里交互。
+`Codex App` 会安静打开桌面版；`Codex CLI` 会优先打开 iTerm，如果没有安装 iTerm，就回退到系统自带的 Terminal。
 
 ## 为什么做这个
 
