@@ -47,10 +47,36 @@ const choice = app.displayDialog("How would you like to start Codex?", {
 
 const codexCommand = choice === "Codex App" ? "codex app" : "codex";
 const escapedFolder = folderPath.replace(/'/g, "'\\''");
-const shellCommand = `cd '${escapedFolder}' && ${codexCommand}`;
+const pathSetup = [
+  "$HOME/.npm-global/bin",
+  "$HOME/.local/bin",
+  "/opt/homebrew/bin",
+  "/usr/local/bin",
+  "/usr/bin",
+  "/bin",
+  "/usr/sbin",
+  "/sbin",
+].join(":");
+
+const shellCommand = [
+  `export PATH="${pathSetup}:$PATH";`,
+  "if ! command -v codex >/dev/null 2>&1; then",
+  "echo 'Codex CLI was not found. Please install Codex CLI first, then try again.';",
+  "exit 127;",
+  "fi;",
+  `cd '${escapedFolder}' && ${codexCommand}`,
+].join(" ");
 
 if (choice === "Codex App") {
-  app.doShellScript(`/bin/zsh -lc ${JSON.stringify(shellCommand)}`);
+  try {
+    app.doShellScript(`/bin/zsh -lc ${JSON.stringify(shellCommand)}`);
+  } catch (error) {
+    app.displayDialog(String(error), {
+      buttons: ["OK"],
+      defaultButton: "OK",
+      withIcon: "stop",
+    });
+  }
 } else {
   const terminal = Application("Terminal");
   terminal.activate();
